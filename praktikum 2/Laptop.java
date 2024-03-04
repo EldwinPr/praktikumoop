@@ -31,7 +31,7 @@ public class Laptop extends StoreItem {
     public void displayDetails() {
         super.displayDetails();
         System.out.println("Processor type: " + processorType);
-        System.out.println("RAM: "+ram+" GB");
+        System.out.println("RAM: " + ram + " GB");
         System.out.println("Touch screen: " + (isTouchScreen ? "Yes" : "No"));
     }
 
@@ -42,11 +42,10 @@ public class Laptop extends StoreItem {
      */
     @Override
     public int calculatePrice() {
-        if (getBrand()=="legowo"){
-            return 500 + (processorType == "intel" ? 100 : 50) + (ram * 10) + (isTouchScreen ? 50 : 0);
+        if(getBrand() == "Legowo") {
+            return 500 + (processorType == "Intel" ? 100 : 50) + ram * 10 + (isTouchScreen ? 50 : 0);
         }
-        else {
-            return 500 + (processorType == "intel" ? 100 : 50) + (ram * 20) + (isTouchScreen ? 100 : 0);
-        }
+        else
+            return 500 + (processorType == "Intel" ? 100 : 50) + ram * 20 + (isTouchScreen ? 100 : 0);
     }
 }
