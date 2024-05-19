@@ -20,5 +20,6 @@ public class GameSimulator {
                 System.out.println("Semua pemain telah ditemukan, permainan selesai.");
             }
         }
+        scanner.close();
     }
 }
