@@ -1,0 +1,45 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int wordAmount = scanner.nextInt();
+        scanner.nextLine();
+        String[] words = scanner.nextLine().split(" ");
+        
+        for (int i = 0; i < words.length; i++) {
+            words[i] = sortString(words[i]);
+        }
+
+        Arrays.sort(words);
+        int count = 0;
+        
+        for (int i = 0; i < wordAmount; ) {
+            boolean pass = false;
+            for (int j = i; j < wordAmount; j++) {
+                if (words[i].equals(words[j])) {
+                    pass = true;
+                } else {
+                    i = j;
+                    break;
+                }
+                if (j == wordAmount - 1) { // Ensure loop ends correctly
+                    i = wordAmount;
+                }
+            }
+            if (pass) {
+                count++;
+            }
+        }
+
+        System.out.println(count);
+        scanner.close();        
+    }
+
+    public static String sortString(String string) {
+        char[] temp = string.toCharArray();
+        Arrays.sort(temp);
+        return new String(temp);
+    }
+}
