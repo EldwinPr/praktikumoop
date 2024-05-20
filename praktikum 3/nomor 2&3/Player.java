@@ -48,7 +48,9 @@ public abstract class Player implements Comparable<Player> {
      */
     @Override
     public int compareTo(Player p) {
-        return Integer.compare(p.susLevel, this.susLevel);
+        if (susLevel > p.susLevel) return 1;
+        else if (susLevel < p.susLevel) return -1;
+        else return 0; 
     }
 
     /**
@@ -58,13 +60,14 @@ public abstract class Player implements Comparable<Player> {
     public boolean equals(Object o) {
         if (o instanceof Player) {
             Player player = (Player) o;
-            return this.name.equals(player.name) && this.susLevel == player.susLevel;
+            return this.name.equals(player.name) && this.frozen == player.frozen
+                    && this.susLevel == player.susLevel;
         }
         return false;
     }
 
     /**
-     * @return representasi string dari Player.
+     * Metode untuk menampilkan informasi player.
      */
     public String toString() {
         String frozenString = frozen ? "frozen" : "not frozen";
@@ -144,4 +147,5 @@ public abstract class Player implements Comparable<Player> {
     public static Player[] getPlayers() {
         return players;
     }
+
 }
