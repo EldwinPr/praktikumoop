@@ -16,21 +16,16 @@ public class Main {
         int count = 0;
         
         for (int i = 0; i < wordAmount; ) {
-            boolean pass = false;
             for (int j = i; j < wordAmount; j++) {
-                if (words[i].equals(words[j])) {
-                    pass = true;
-                } else {
+                if (!words[i].equals(words[j])) {
                     i = j;
                     break;
                 }
-                if (j == wordAmount - 1) { // Ensure loop ends correctly
+                if (j == wordAmount - 1) {
                     i = wordAmount;
                 }
             }
-            if (pass) {
-                count++;
-            }
+            count++;
         }
 
         System.out.println(count);
